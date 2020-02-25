@@ -12,44 +12,54 @@
 
 <body>
 
-    <div class="container"></div>
-    <nav class="navbar navbar-expand-lg d-flex navbar-light bg-light text-center">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Password Generator</a>
+    <div id="content" class="container">
+        <div id="navBar" class="container">
+            <nav class="navbar navbar-expand-lg d-flex navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">Password Generator</a>
+                </div>
+            </nav>
         </div>
-    </nav>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-sm-12">
-                <h5>Generate A Password</h5>
+        <div id="display" class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Generate a Password</h5>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-8 col-sm-12">
-                <input type="text" id="yourSecurePassword">
-                <input type="range" min="8" max="128" id="range">
+            <div class="row">
+                <div class="col">
+                    <input type="text" min="8" max="128" id="yourSecurePassword" placeholder="Your Secure Password">
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-8 col-sm-12">
-
+            <div class="row">
+                <div class="col">
+                    <button onclick="">Generate Password</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-//         var specialCharacters = {
-//             "!"#$%& '()*+,-./:;<=>?@[\]^_`{|}~";
-// }
 
-//         function generate() {
+        function generate() {
 
-//         }
+            let complexity = "yourSecurePassword"
+
+            let values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!"#$%&'()*+,-./:;<=>?@[\]^ _`{|}~';
+
+            let password= "";
+
+            for(var i = 0; i <= complexity; i++){
+                password = password + values.charAt(Math.floor(Math.random() * Math.floor(value.length - 1)));
+            }
+
+            document.getElementById("diaplay").value = password;
+        }
 
     </script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
