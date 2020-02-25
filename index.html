@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button onclick="">Generate Password</button>
+                    <button onclick="generate()">Generate Password</button>
                 </div>
             </div>
         </div>
@@ -43,19 +43,23 @@
 
     <script>
 
-        function generate() {
+        function generate(length = 8) {
+console.log("hello world")
+            let complexity = (yourSecurePassword).value;
 
-            let complexity = "yourSecurePassword"
+            let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[\]^ _`{|}~0123456789";
 
-            let values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!"#$%&'()*+,-./:;<=>?@[\]^ _`{|}~';
 
             let password= "";
 
-            for(var i = 0; i <= complexity; i++){
-                password = password + values.charAt(Math.floor(Math.random() * Math.floor(value.length - 1)));
+            for (var i = 0; i < length; i++) {
+                var character = Math.floor(Math.random() * values.length);
+                password += values.substring(character, character + 1);
             }
 
-            document.getElementById("diaplay").value = password;
+             alert(password);
+            
+            // document.value = password;
         }
 
     </script>
