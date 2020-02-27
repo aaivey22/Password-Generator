@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button onclick="generate()">Generate Password</button>
+                    <button id="submit" onclick="generate()">Generate Password</button>
                 </div>
             </div>
         </div>
@@ -43,21 +43,44 @@
 
     <script>
 
-        function generate(length = 8) {
-console.log("hello world")
-            let complexity = (yourSecurePassword).value;
+var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var loCase = "abcdefghijklmnopqrstuvwxyz";
+var figures = [1,2,3,4,5,6,7,8,9,0];
+var special =  `!#$%&'()*+,-./:;<=>?@[\\]"^ _\`{|}~`;      
+var passwordDiv = "";
+var button = document.getElementById('submit');
 
-            let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[\]^ _`{|}~0123456789";
+
+button.addEventListener('click',generate());
+
+function generate()
+var pwrdLength = prompt("password length? (between 8 and 12)");
+    
+if ((pwrdLength < 8) && (pwrdLength > 12)); {
+    alert("please enter a valid number");
+} else {
+    var caseChoice = prompt("enter a for lowercase or A for uppercase");
+    }
+}
+// console.log("hello world");
+
+// set prompt to variable (length)
+// set option for each case to a variable/array/object
+// based on cases chosen, pick random character from above variables [upCase....]
+    // need to "concat" into one big string/array
+// finished password should be around this point
+    // Display password on screen
+// ** Be sure to account for incorrect prompts / sad paths
 
 
-            let password= "";
 
-            for (var i = 0; i < length; i++) {
-                var character = Math.floor(Math.random() * values.length);
-                password += values.substring(character, character + 1);
-            }
 
-             alert(password);
+            // for (var i = 0; i < length; i++) {
+            //     var character = Math.floor(Math.random() * values.length-1);
+            //     password += values.substring(character, character + 1);
+            // }
+            //  var passwordDiv = document.getElementById("yourSecurePassword");
+            //  passwordDiv.textContent = password;
             
             // document.value = password;
         }
