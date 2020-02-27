@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button id="submit" onclick="generate()">Generate Password</button>
+                    <button id="submit">Generate Password</button>
                 </div>
             </div>
         </div>
@@ -43,26 +43,30 @@
 
     <script>
 
-var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var loCase = "abcdefghijklmnopqrstuvwxyz";
-var figures = [1,2,3,4,5,6,7,8,9,0];
-var special =  `!#$%&'()*+,-./:;<=>?@[\\]"^ _\`{|}~`;      
-var passwordDiv = "";
-var button = document.getElementById('submit');
+        var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var loCase = "abcdefghijklmnopqrstuvwxyz";
+        var figures = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var special = `!#$%&'()*+,-./:;<=>?@[\\]"^ _\`{|}~`;
+        // var passwordDiv = ""; //to display pwrd in div container
+        var button = document.getElementById('submit');
+
+        button.addEventListener('click', generate);
+
+        function generate() {
+            var pwrdLength = prompt("password length? (between 8 and 128)");
+            if ((pwrdLength < 8) || (pwrdLength > 128)) {
+                alert("please enter a valid number");
+                generate();
+                return;
+            }
+            var loChoice = confirm("press ok for lower case");
+            var upChoice = confirm("press ok for upper case");
+            var specialChoice = confirm("press ok if you want special characters");
+            console.log("hello world",loChoice,upChoice,specialChoice);
+            
+        }
 
 
-button.addEventListener('click',generate());
-
-function generate()
-var pwrdLength = prompt("password length? (between 8 and 12)");
-    
-if ((pwrdLength < 8) && (pwrdLength > 12)); {
-    alert("please enter a valid number");
-} else {
-    var caseChoice = prompt("enter a for lowercase or A for uppercase");
-    }
-}
-// console.log("hello world");
 
 // set prompt to variable (length)
 // set option for each case to a variable/array/object
@@ -81,9 +85,9 @@ if ((pwrdLength < 8) && (pwrdLength > 12)); {
             // }
             //  var passwordDiv = document.getElementById("yourSecurePassword");
             //  passwordDiv.textContent = password;
-            
+
             // document.value = password;
-        }
+        
 
     </script>
 
