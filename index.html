@@ -43,28 +43,66 @@
 
     <script>
 
+
         var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         var loCase = "abcdefghijklmnopqrstuvwxyz";
-        var figures = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var figures = "0123456789";
         var special = `!#$%&'()*+,-./:;<=>?@[\\]"^ _\`{|}~`;
-        // var passwordDiv = ""; //to display pwrd in div container
+
+        var password = "";
+
+
         var button = document.getElementById('submit');
 
         button.addEventListener('click', generate);
 
+        function addCase(type, selectedCase) { //this is a helper function to be reused and the parameters are the placeholders type and selec
+            return selectedCase + type;
+        }
+
         function generate() {
+            password = "";
             var pwrdLength = prompt("password length? (between 8 and 128)");
             if ((pwrdLength < 8) || (pwrdLength > 128)) {
                 alert("please enter a valid number");
                 generate();
                 return;
             }
-            var loChoice = confirm("press ok for lower case");
             var upChoice = confirm("press ok for upper case");
+            var loChoice = confirm("press ok for lower case");
+            var figChoice = confirm("press ok for numbers");
             var specialChoice = confirm("press ok if you want special characters");
-            console.log("hello world",loChoice,upChoice,specialChoice);
-            
-        }
+            // console.log("hello world", loChoice, upChoice, specialChoice);
+
+            var selectedCase = "";
+            if (upChoice === true) {
+                selectedCase = addCase(upCase, selectedCase);
+            }
+
+            if (loChoice === true) {
+                selectedCase = addCase(loCase, selectedCase);
+            }
+
+            if (figChoice === true) {
+                selectedCase = addCase(figures, selectedCase);
+            }
+
+
+            if (specialChoice === true) {
+                selectedCase = addCase(special, selectedCase);
+            }
+
+
+            for (var i = 0; i <= pwrdLength; i++) {
+
+                password = password + selectedCase.charAt(Math.floor((Math.random() * selectedCase.length) - 1));
+            }
+            selectedCase = ""; //reset
+        console.log(password);
+        //display pwrd in input field
+        //transfer everything to js file
+        //annotate chunks of functionality
+ } 
 
 
 
@@ -72,22 +110,13 @@
 // set option for each case to a variable/array/object
 // based on cases chosen, pick random character from above variables [upCase....]
     // need to "concat" into one big string/array
+    // use the for loop to iterate as many times as the user stated "passwordLength"
+    // (in the for loop, during each iteration)
+    // Add 1 random character to the "password" string, based on the Math.random function
 // finished password should be around this point
     // Display password on screen
 // ** Be sure to account for incorrect prompts / sad paths
 
-
-
-
-            // for (var i = 0; i < length; i++) {
-            //     var character = Math.floor(Math.random() * values.length-1);
-            //     password += values.substring(character, character + 1);
-            // }
-            //  var passwordDiv = document.getElementById("yourSecurePassword");
-            //  passwordDiv.textContent = password;
-
-            // document.value = password;
-        
 
     </script>
 
