@@ -12,30 +12,32 @@
 
 <body>
 
-    <div id="content" class="container">
+    <div id="content" class="container-fluid">
         <div id="navBar" class="container">
-            <nav class="navbar navbar-expand-lg d-flex navbar-light">
+            <nav class="navbar navbar-expand-lg d-flex justify-content-center navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">Password Generator</a>
                 </div>
             </nav>
         </div>
         <div id="display" class="container">
-            <div class="row">
+            <div class="row width-100">
                 <div class="col">
-                    <h5>Generate a Password</h5>
+                    <h5 class="text-center">Generate a Password</h5>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <input type="text" min="8" max="128" id="yourSecurePassword" placeholder="Your Secure Password">
+                    <!-- <input type="text" min="8" max="128" id="yourSecurePassword" class="text-center" placeholder="Your Secure Password"> -->
+                    <input class="form-control" type="text" min="8" max="128" id="yourSecurePassword" placeholder="Your Secure Password" readonly>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <button id="submit">Generate Password</button>
+                    <!-- <button id="submit" class="p-3 mb-2 bg-info text-white">Generate Password</button> -->
+                    <button id="submit" type="button" class="btn btn-info justify-center">Generate Password</button>
                 </div>
             </div>
         </div>
