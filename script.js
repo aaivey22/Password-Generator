@@ -56,7 +56,7 @@ function generate() {
     }
 
 
-    for (var i = 0; i <= pwrdLength; i++) { // This for loop will iterate as many times as designated by the pwrdlength variable
+    for (var i = 0; i < pwrdLength; i++) { // This for loop will iterate as many times as designated by the pwrdlength variable
         // Password is called and concatenated with the selectedCase string where a golbal math object is then used to select a random character within the specified index string
         password = password + selectedCase.charAt(Math.floor((Math.random() * selectedCase.length) - 1));
     }

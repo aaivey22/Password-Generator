@@ -1,12 +1,33 @@
 
 body {
     background-color: lightgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* #navBar {
-    color: lavender;
-} */
+textarea:placeholder-shown {
+    text-align: center;
+    font-family: monospace;
+    font-size: 200%;
+}
+
+#yourSecurePassword {
+    padding-bottom: 15%;
+    border-style: dashed;
+}
 
 #display {
     background-color: white;
+    padding: 3% 3%;
+}
+
+#securePassword {
+    padding: 5% 0 5% 0;
+}
+
+#buttonContainer {
+    padding-top: 5%;
+}
+
+textarea:placeholder-shown {
+    text-align: center;
 }
